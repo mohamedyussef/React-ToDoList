@@ -1,0 +1,72 @@
+import React, { useEffect, useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import AddProduct from "./AddProduct";
+import "./Tasks.css";
+
+export default function Tasks() {
+  const { productID } = useParams();
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9000/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+      });
+  }, []);
+  const deleteProduct = (productId) => {
+    fetch(`http://localhost:9000/products/${productId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((product) => {
+        return console.log(product);
+      });
+  };
+
+  return (
+    <div className="container Contain">
+      <div className="title">
+        <center>
+          All Tasks
+          <Link to="AddProduct" className="icon">
+            <i className="fa-solid fa-circle-plus"></i>
+          </Link>
+        </center>
+      </div>
+      <div className="table1">
+        <table>
+          <thead>
+            <tr>
+              <th className="number">Number</th>
+              <th className="title1">Title</th>
+              <th className="description">Description</th>
+              <th className="operation">Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {product.map((e) => {
+              return (
+                <tr key={e.id}>
+                  <td>{e.id}</td>
+                  <td>{e.title}</td>
+                  <td>{e.description}</td>
+                  <td>
+                    <button
+                      onClick={function () {
+                        deleteProduct(e.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button>Edit</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

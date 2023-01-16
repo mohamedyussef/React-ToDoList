@@ -1,0 +1,13 @@
+.form-control1 {
+  border: 2px solid white;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}

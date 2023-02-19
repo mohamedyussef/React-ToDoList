@@ -7,19 +7,23 @@ import Swal from "sweetalert2";
 export default function Tasks() {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:9000/products")
+    fetch("https://dizzy-earrings-colt.cyclic.app/feedback")
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
       });
-  });
+  }, []);
   const deleteProduct = (productId) => {
-    fetch(`http://localhost:9000/products/${productId}`, {
+    console.log(productId);
+    fetch(`https://dizzy-earrings-colt.cyclic.app/feedback/${productId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((product) => {
-        return console.log(product);
+      .then((data) => {
+        // product.filter((e)=>{
+        //   return productId !== e.id;
+        // })
+        console.log(data);
       });
   };
   const sweet = (productID) =>
@@ -61,7 +65,7 @@ export default function Tasks() {
                 <div>
                   <Link
                     style={{ marginRight: "10px" }}
-                    to={`/EditProduct/${e.id}`}
+                    to={`EditProduct/${e.id}`}
                   >
                     <i className="fa-solid fa-pen-to-square ico"></i>
                   </Link>

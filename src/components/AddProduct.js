@@ -12,12 +12,18 @@ export default function AddProduct() {
   const formSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:9000/products", {
-        title,
-        description,
-        data,
-        endData,
-      })
+      .post(
+        "https://dizzy-earrings-colt.cyclic.app/feedback",
+        {
+          title,
+          description,
+          data,
+          endData,
+        },
+        {
+          "content-type": "application/json",
+        }
+      )
       .then((data) => {
         console.log(data);
       });
@@ -37,8 +43,8 @@ export default function AddProduct() {
         <form className="for_wind" onSubmit={formSubmit}>
           <center>
             <h1 className="gradient-text h1">Create New Task</h1>
-            <Link style={{ paddingRight: "10px" }} to="/" className="icon">
-              <i class="fa-solid fa-rotate-left"></i>
+            <Link style={{ paddingRight: "10px" }} to="Tasks" className="icon">
+              <i className="fa-solid fa-rotate-left"></i>
             </Link>
           </center>
           <div className="form2">
@@ -54,7 +60,7 @@ export default function AddProduct() {
                   name="name"
                   id="name"
                 />
-                <label for="name" class="form__label">
+                <label htmlFor="name" className="form__label">
                   Title
                 </label>
               </div>

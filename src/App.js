@@ -11,10 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Tasks />}></Route>
         <Route path="/AddProduct" element={<AddProduct />}></Route>
-        <Route
-          path="/React-ToDoListEditProduct/:productID"
-          element={<EditProduct />}
-        ></Route>
+        <Route path="/EditProduct/:productID" element={<EditProduct />}></Route>
       </Routes>
     </div>
   );

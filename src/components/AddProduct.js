@@ -13,7 +13,7 @@ export default function AddProduct() {
     e.preventDefault();
     axios
       .post(
-        "https://dizzy-earrings-colt.cyclic.app/feedback",
+        "https://fine-teal-lion-toga.cyclic.app/feedback",
         {
           title,
           description,
@@ -43,7 +43,7 @@ export default function AddProduct() {
         <form className="for_wind" onSubmit={formSubmit}>
           <center>
             <h1 className="gradient-text h1">Create New Task</h1>
-            <Link style={{ paddingRight: "10px" }} to="Tasks" className="icon">
+            <Link style={{ paddingRight: "10px" }} to="/" className="icon">
               <i className="fa-solid fa-rotate-left"></i>
             </Link>
           </center>

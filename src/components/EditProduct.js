@@ -15,7 +15,7 @@ export default function EditProduct() {
   const formSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://dizzy-earrings-colt.cyclic.app/feedback/${productID}`, {
+      .put(`https://fine-teal-lion-toga.cyclic.app/feedback/${productID}`, {
         title,
         description,
         data,
@@ -40,7 +40,7 @@ export default function EditProduct() {
         <form className="for_wind" onSubmit={formSubmit}>
           <center>
             <h1 className="gradient-text h1">Edit Task</h1>
-            <Link style={{ paddingRight: "10px" }} to="Tasks" className="icon">
+            <Link style={{ paddingRight: "10px" }} to="/" className="icon">
               <i class="fa-solid fa-rotate-left"></i>
             </Link>
           </center>

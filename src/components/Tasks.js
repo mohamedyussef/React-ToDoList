@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 export default function Tasks() {
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    fetch("https://dizzy-earrings-colt.cyclic.app/feedback")
+    fetch("https://fine-teal-lion-toga.cyclic.app/feedback")
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -15,7 +15,7 @@ export default function Tasks() {
   }, []);
   const deleteProduct = (productId) => {
     console.log(productId);
-    fetch(`https://dizzy-earrings-colt.cyclic.app/feedback/${productId}`, {
+    fetch(`https://fine-teal-lion-toga.cyclic.app/feedback/${productId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
